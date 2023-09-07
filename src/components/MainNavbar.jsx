@@ -1,6 +1,8 @@
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 export default function MainNavbar() {
+    const navigate = useNavigate();
 
     return (
     <>
@@ -20,8 +22,8 @@ export default function MainNavbar() {
 
                     <nav>
                     <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
-                        <li><a className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="/">Products</a></li>
-                        <li><a className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" href="#">Cart</a></li>
+                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Products</Link></li>
+                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/cart">Cart</Link></li>
                         <SearchBar></SearchBar>
                     </ul>
                     </nav>
@@ -29,8 +31,11 @@ export default function MainNavbar() {
                 
                 <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
                     <div className="auth flex items-center w-full md:w-full">
-                    <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Log in</button>
-                    <button className="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">Sign up</button>
+                    <button onClick={()=>{navigate("/login")}}
+                     className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Log in</button>
+                    <button onClick={()=>{
+                        navigate("/register")
+                    }} className="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">Sign up</button>
                     </div>
                 </div>
             </div>
