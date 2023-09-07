@@ -116,4 +116,7 @@ const deleteProduct = async(productId) => {
     }
 }
 
+
+
+
 export {getAllProducts, getAllSortedProducts, getProductById, getProductsByCategory, addNewProduct, updateProductById, deleteProduct}
