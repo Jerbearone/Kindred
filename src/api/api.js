@@ -1,5 +1,5 @@
 
-const BASEURL = 'https://fakestoreapi.com/'
+const BASEURL = 'https://fakestoreapi.com'
 //get
 const getAllProducts = async() => {
     try {
@@ -25,6 +25,17 @@ const getAllSortedProducts = async() => {
     }
 }
 
+//get all categories
+
+const getAllCategories = async() => {
+    try {
+        const response = await fetch(`${BASEURL}/products/categories`)
+        const categories = await response.json();
+        return categories;
+    } catch (error) {
+        console.log(error);
+    }
+}
 //get products from a category
 
 const getProductsByCategory = async(category) => {
@@ -119,4 +130,4 @@ const deleteProduct = async(productId) => {
 
 
 
-export {getAllProducts, getAllSortedProducts, getProductById, getProductsByCategory, addNewProduct, updateProductById, deleteProduct}
+export {getAllProducts, getAllSortedProducts,getAllCategories, getProductById, getProductsByCategory, addNewProduct, updateProductById, deleteProduct}
