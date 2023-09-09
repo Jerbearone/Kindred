@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <h1 className="w-full text-3xl text-blue-600 bg-white mt-5 ">Kindred</h1>
+    <h1 className="w-full text-4xl text-blue-600 bg-white mt-5 ">Kindred</h1>
     <MainNavbar></MainNavbar>
       <Routes>
         <Route path='/' element={<Products></Products>}></Route>
