@@ -1,4 +1,10 @@
+import { useNavigate } from "react-router-dom"
+
 export default function ProductsCard({product}) {
+    const navigator = useNavigate();
+    const viewProductDetails = () => {
+        navigator("productinfo", {state: product} )
+    }
     return (
         <div className="w-screen h-90vh flex justify-center items-center min-h-screen">
             <div className="container max-w-sm w-full h-400 p-4 ">
@@ -10,7 +16,7 @@ export default function ProductsCard({product}) {
                     </p>
                 </div>
                 <div className="prod-img">
-                    <img src={product.image}
+                    <img onClick={viewProductDetails} src={product.image}
                         className="w-full h-60 object-contain object-center" />
                 </div>
                 <div className="prod-info grid gap-10">

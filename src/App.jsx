@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import MainNavbar from './components/MainNavbar'
 import Products from './components/Products/Products'
+import ProductDetails from './components/Products/ProductDetails'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/login'></Route>
         <Route path='/register'></Route>
         <Route path='history'></Route>
+        <Route path='/productinfo' element={<ProductDetails></ProductDetails>}></Route>
       </Routes>
 
     </>

@@ -1,7 +1,7 @@
 export default function SearchBar() {
     return (
 
-  <div className="bg-white p-2 w-96 rounded-md">
+  <div className="bg-white p-2 w-full rounded-md">
     <div className="mt-3 mb-2 border-2 py-1 px-3 flex justify-between rounde-md rounded-md">
       <input className="flex-grow outline-none text-gray-600 focus:text-blue-600" type="text" placeholder="Search Products" />
       <spa>
