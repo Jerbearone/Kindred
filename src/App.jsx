@@ -3,6 +3,7 @@ import './App.css'
 import MainNavbar from './components/MainNavbar'
 import Products from './components/Products/Products'
 import ProductDetails from './components/Products/ProductDetails'
+import Login from './components/Auth/Login'
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Products></Products>}></Route>
         <Route path='/cart'></Route>
-        <Route path='/login'></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register'></Route>
         <Route path='history'></Route>
         <Route path='/productinfo' element={<ProductDetails></ProductDetails>}></Route>

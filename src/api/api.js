@@ -127,7 +127,28 @@ const deleteProduct = async(productId) => {
     }
 }
 
+const loginUser = async(userName, password) => {
+    console.log(`user: ${userName} password: ${password}`)
+    try {
+        const response = await fetch(`${BASEURL}/auth/login`,{
+            headers: {
+                "Content-Type":"application/json"
+            },
+            method:'POST',
+            body:JSON.stringify({
+                username: userName,
+                password: password
+            })
+        });
+        const loginData = await response.json();
+        return loginData;
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
-export {getAllProducts, getAllSortedProducts,getAllCategories, getProductById, getProductsByCategory, addNewProduct, updateProductById, deleteProduct}
+
+export {getAllProducts, getAllSortedProducts,getAllCategories, getProductById, getProductsByCategory, addNewProduct, updateProductById, deleteProduct, loginUser}
