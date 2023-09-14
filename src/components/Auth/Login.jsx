@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { loginUser } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { addCurrentUser } from "../../api/userLocalStorage";
 
 
 export default function Login(){
@@ -22,8 +23,8 @@ export default function Login(){
                 const loggedInUser = await loginUser(userName, password);
                 console.log(loggedInUser);
                 if (loggedInUser.token) {
+                    await addCurrentUser(userName);
                     navigate("/")
-                    
                 }
     
             }
