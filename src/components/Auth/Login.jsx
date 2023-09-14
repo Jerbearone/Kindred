@@ -4,29 +4,30 @@ import { useNavigate } from "react-router-dom";
 import { addCurrentUser } from "../../api/userLocalStorage";
 
 
-export default function Login(){
-    const [userName, setUsername] = useState("");
+export default function Login({username, setUsername}){
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const [userNameInput, setUserNameInput] = useState("");
 
     const changeUserName = (e) => {
-        setUsername(e.target.value);
+        setUserNameInput(e.target.value);
     }
     const changeUserPassword = (e) => {
         setPassword(e.target.value);
     }
 
     const attemptUserLogin = async () => {
-        if (userName != null && password != null) {
+        if (username != null && password != null) {
             //login user
           
-                const loggedInUser = await loginUser(userName, password);
+                const loggedInUser = await loginUser(userNameInput, password);
                 console.log(loggedInUser);
                 if (loggedInUser.token) {
-                    await addCurrentUser(userName);
+                    await addCurrentUser(userNameInput);
+                    setUsername(userNameInput);
                     navigate("/")
                 }
-    
+
             }
     }
 
