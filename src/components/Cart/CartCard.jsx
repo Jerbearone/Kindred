@@ -1,26 +1,29 @@
 import { useNavigate } from "react-router-dom"
-import { addItemToCart, updateItemFromCart } from "../../api/cartLocalStorage";
+import { deleteItemFromCart, updateItemFromCart } from "../../api/cartLocalStorage";
 import { useEffect, useState } from "react";
 import { getProductById } from "../../api/api";
 
-export default function CartCard({productId, quantity, username, addToTotal}) {
+export default function CartCard({productId, quantity, username, addToTotal, rerenderFromDelete}) {
     const [product, setProduct] = useState({})
     const [productsQuantity, setProductsQuantity] = useState(quantity);
+
     //get individual item by fetching item by id
     useEffect(()=> {
-
         const getCartItem = async() => {
-
-
             const response = await getProductById(productId);
             setProduct(response);
         }
         getCartItem();
-    }, [])
+    },)
     const navigator = useNavigate();
     const viewProductDetails = () => {
         navigator("productinfo", {state: product} )
     }
+    const callDeleteItem = async() => {
+        await rerenderFromDelete();
+    }
+
+   
     return (
        
             <div className="container w-full h-200 p-4 ml-10  flex-col">
@@ -56,6 +59,11 @@ export default function CartCard({productId, quantity, username, addToTotal}) {
                             className="px-4 py-2 ml-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">+</button>
                     </div>
                     <p className="font-bold text-xl">${product.price * productsQuantity}</p>
+                    <button onClick={async()=> {
+                        await deleteItemFromCart(username, productId);
+                        await callDeleteItem();
+
+                    }} className="hover:text-blue-600">remove from cart</button>
                 </div>
                 </div>
             </div>

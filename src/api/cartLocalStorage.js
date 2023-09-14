@@ -22,6 +22,14 @@ const updateItemFromCart = async (username, productId, quantity) => {
 
 }
 
+const deleteItemFromCart = async(username, productId) => {
+    const usersCart = await getUsersCart(username);
+    delete usersCart[productId];
+    console.log(`Deleted item.. Updated cart: ${usersCart}`)
+    localStorage.setItem(username, JSON.stringify(usersCart))
+
+}
+
 
 //method to get users cart (does not need to be exported)
 const getUsersCart = async(username) =>{
@@ -45,4 +53,4 @@ const getItemsFromCart = async(username) => {
     return items;
 }
 
-export {addItemToCart, getItemsFromCart, updateItemFromCart}
+export {addItemToCart, getItemsFromCart, updateItemFromCart, deleteItemFromCart}

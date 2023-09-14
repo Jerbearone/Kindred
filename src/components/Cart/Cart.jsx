@@ -8,6 +8,7 @@ export default function Cart() {
     const [usersCart, setUsersCart] = useState({})
     const [totalPrice, setTotalPrice] = useState(0);
     const [currentUserName, setCurrentUsername] = useState("")
+    const [deleteTrigger, setDeleteTrigger] = useState(false);
     useEffect(()=>{
         let usersStarterTotal = 0;
         
@@ -37,14 +38,16 @@ export default function Cart() {
             setTotalPrice(usersStarterTotal);
         }
         loadUsersItems()
-    },[])
+    },[deleteTrigger])
+    const rerenderFromDelete = async() => { setDeleteTrigger(!deleteTrigger)}
 
     const addToTotal =(amount) => {setTotalPrice(totalPrice+amount)}
     return (<div className="flex flex-row w-9/10 justify-between p-12 ">
         <div>
         {Object.keys(usersCart).map((item)=> {
             //return <h1>{usersCart[item].quantity}</h1>
-            return <CartCard key={item} productId={item} username={currentUserName} quantity={usersCart[item].quantity} addToTotal={addToTotal}></CartCard>
+            return <CartCard key={item} productId={item} username={currentUserName} quantity={usersCart[item].quantity} addToTotal={addToTotal}
+            rerenderFromDelete={rerenderFromDelete}></CartCard>
 
         })}
         </div>
