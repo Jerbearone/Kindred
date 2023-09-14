@@ -3,12 +3,14 @@ import { getItemsFromCart } from "../../api/cartLocalStorage"
 import CartCard from "./CartCard"
 import { getCurrentUserName } from "../../api/userLocalStorage";
 import { getProductById } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
     const [usersCart, setUsersCart] = useState({})
     const [totalPrice, setTotalPrice] = useState(0);
     const [currentUserName, setCurrentUsername] = useState("")
     const [deleteTrigger, setDeleteTrigger] = useState(false);
+    const navigate = useNavigate();
     useEffect(()=>{
         let usersStarterTotal = 0;
         
@@ -53,7 +55,12 @@ export default function Cart() {
         </div>
         <div className=" sticky top-4 h-full w-60 mt-12 shadow-2xl">
             <p className="w-50 h-40 bg-white text-2xl font-bold mt-10">Total<br></br> ${totalPrice.toFixed(2)}</p>
-            <button className="px-4 mb-8 py-2 mr-4 ml-4 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Proceed to checkout</button>
+            <button onClick={() => {
+                    navigate("/checkout")
+                }
+
+            } className="px-4 mb-8 py-2 mr-4 ml-4 transition ease-in duration-200 uppercase rounded-full 
+            hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Proceed to checkout</button>
         </div>
         
     </div>)
