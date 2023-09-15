@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="ml-4 mr-4 mx-auto mt-20 mb-10">
+        <div className="ml-12 mr-12 mx-auto mt-20 mb-10">
 
 	<footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
 		<div className="sm:flex sm:items-center sm:justify-between">
