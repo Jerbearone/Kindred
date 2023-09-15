@@ -7,6 +7,7 @@ import Login from './components/Auth/Login'
 import Cart from './components/Cart/Cart'
 import Checkout from './components/Cart/Checkout'
 import { useState } from 'react'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='history'></Route>
         <Route path='/productinfo' element={<ProductDetails></ProductDetails>}></Route>
       </Routes>
+      <Footer></Footer>
 
     </>
   )
