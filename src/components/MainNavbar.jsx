@@ -11,8 +11,16 @@ export default function MainNavbar({username, setUsername}) {
             
             const data = await getCurrentUserName();
             const setinitialUsersName = async() => {
-                console.log(data);
-                setUsername(data);
+                console.log(`username: ${data}`);
+                if (data!= null) {
+                    console.log(`logged in user: ${data}`)
+                    setUsername(data);
+
+                } else {
+                    console.log(`No user: ${data}`)
+                    setUsername("")
+                }
+                
             }
             await setinitialUsersName();
             
@@ -62,8 +70,9 @@ export default function MainNavbar({username, setUsername}) {
                         </a></p>
                     {<button onClick={async()=>{
                         //login
-                        if (username == "") {
+                        if (username == null) {
                             const tempName = await getCurrentUserName();
+                            console.log(tempName)
                             setUsername(tempName);
                             navigate("/login");
                         } else {
