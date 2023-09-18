@@ -41,7 +41,7 @@ export default function Products() {
                     
                     return (<>
                     <h2 className="text-2xl uppercase text-gray-900 font-bold mt-10 mb-10" >{category}</h2>
-                    <CategoriesContainer className="w-100vw h-100vh" key={category.category} username={username} products={productCategories[category]}></CategoriesContainer>
+                    <CategoriesContainer className="w-full h-full" key={category.category} username={username} products={productCategories[category]}></CategoriesContainer>
                     </>
                     )
                 })
