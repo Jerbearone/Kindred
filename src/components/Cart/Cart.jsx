@@ -54,7 +54,7 @@ export default function Cart() {
 
         })}
         </div>
-        <div className="sticky top-4 h-full lg:w-1/5 shadow-2xl mr-8 ml-8 sm:text-sm ">
+        <div className="sticky rounded-lg top-4 h-full lg:w-1/5 shadow-2xl mr-8 ml-8 sm:text-sm ">
             <p className=" bg-white text-2xl font-bold mt-10">Total<br></br> ${totalPrice.toFixed(2)}</p>
             <button onClick={() => {
                     navigate("/checkout")

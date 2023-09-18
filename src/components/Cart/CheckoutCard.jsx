@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProductById } from "../../api/api";
 
-export default function CheckoutCard ({productId, quantity,  addToTotal}) {
+export default function CheckoutCard ({productId, quantity}) {
     const [product, setProduct] = useState({})
     useEffect(()=> {
         const getCartItem = async() => {

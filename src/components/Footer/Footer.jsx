@@ -2,7 +2,7 @@ export default function Footer() {
     return (
         <div className="ml-12 mr-12 mx-auto mt-20 mb-10">
 
-	<footer className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
+	<footer className="p-4 bg-white rounded-lg shadow-2xl md:px-6 md:py-8 dark:bg-gray-800 ">
 		<div className="sm:flex sm:items-center sm:justify-between">
 			<a href="#" target="_blank" className="flex items-center mb-4 sm:mb-0">
 				{//<img src="https://flowbite.com/docs/images/logo.svg" className="mr-4 h-8" alt="Flowbite Logo" />
