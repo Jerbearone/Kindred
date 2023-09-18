@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
+import { addItemToCart } from "../../api/cartLocalStorage";
+import { getCurrentUserName } from "../../api/userLocalStorage";
 
 export default function ProductDetails() {
     const [productDetails, setProductDetails] = useState({})
+    const [userName, setUsername] = useState("")
     const location = useLocation()
     useEffect(()=>{
+        const addUsersName = async() => {
+            const currentUser = await getCurrentUserName();
+            setUsername(currentUser);
+        }
+        addUsersName()
         setProductDetails(location.state);
         console.log(productDetails)
 
@@ -31,6 +39,9 @@ export default function ProductDetails() {
                     <div className="flex flex-col justify-between items-center text-gray-900">
                     
                     <button
+                        onClick={()=> {
+                            addItemToCart(userName,productDetails.id, 1)
+                        }}
                             className="px-12 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add
                         to cart</button>
                     </div>

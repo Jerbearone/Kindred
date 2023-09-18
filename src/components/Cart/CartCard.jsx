@@ -22,10 +22,7 @@ export default function CartCard({productId, quantity, username, addToTotal, rer
     const callDeleteItem = async() => {
         await rerenderFromDelete();
     }
-
-   
     return (
-       
             <div className="w-9/10 h-200 ml-8 mr-8 mb-4">
                 <div className="card flex flex-col justify-center w-full p-10 bg-white rounded-lg shadow-2xl">
                 <div className="prod-title">
@@ -67,7 +64,5 @@ export default function CartCard({productId, quantity, username, addToTotal, rer
                 </div>
                 </div>
             </div>
- 
-
     )
 }
