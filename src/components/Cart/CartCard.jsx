@@ -26,13 +26,13 @@ export default function CartCard({productId, quantity, username, addToTotal, rer
    
     return (
        
-            <div className="container w-full h-200 p-4 ml-10  flex-col">
+            <div className="w-9/10 h-200 ml-8 mr-8 mb-4">
                 <div className="card flex flex-col justify-center w-full p-10 bg-white rounded-lg shadow-2xl">
                 <div className="prod-title">
                     <p className="text-sm uppercase text-gray-900 font-bold truncate mb-10">{product.title}</p>
                   
                 </div>
-                <div className="prod-img">
+                <div className="prod-img w-full">
                     <img onClick={viewProductDetails} src={product.image}
                         className="w-full h-24 object-contain object-center" />
                 </div>
@@ -40,7 +40,7 @@ export default function CartCard({productId, quantity, username, addToTotal, rer
                     <div>
                     
                     </div>
-                    <div className="flex flex-col md:flex-row justify-center items-center text-gray-900">
+                    <div className="flex flex-row md:flex-row sm:flex-row  justify-center items-center text-gray-900">
                     
                     <button onClick={() =>{if (productsQuantity >= 1){
                         setProductsQuantity(productsQuantity -1)

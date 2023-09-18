@@ -44,8 +44,9 @@ export default function Cart() {
     const rerenderFromDelete = async() => { setDeleteTrigger(!deleteTrigger)}
 
     const addToTotal =(amount) => {setTotalPrice(totalPrice+amount)}
-    return (<div className="flex flex-row w-9/10 justify-between p-12 ">
-        <div>
+    return (
+    <div className="mr-4 flex-column w-full justify-around p-4 md:block lg:flex">
+        <div className="lg:w-2/3 justify-between mb-4 md:w-full sm:w-full md:w-full mr-4">
         {Object.keys(usersCart).map((item)=> {
             //return <h1>{usersCart[item].quantity}</h1>
             return <CartCard key={item} productId={item} username={currentUserName} quantity={usersCart[item].quantity} addToTotal={addToTotal}
@@ -53,8 +54,8 @@ export default function Cart() {
 
         })}
         </div>
-        <div className=" sticky top-4 h-full w-60 mt-12 shadow-2xl">
-            <p className="w-50 h-40 bg-white text-2xl font-bold mt-10">Total<br></br> ${totalPrice.toFixed(2)}</p>
+        <div className="sticky top-4 h-full lg:w-1/5 shadow-2xl mr-8 ml-8 sm:text-sm ">
+            <p className=" bg-white text-2xl font-bold mt-10">Total<br></br> ${totalPrice.toFixed(2)}</p>
             <button onClick={() => {
                     navigate("/checkout")
                 }
