@@ -20,7 +20,6 @@ export default function Cart() {
             const userItems = await getItemsFromCart(username)
             setUsersCart(userItems);
             //set total price for cart when user goes to cart page
-         
             //user promise.all for map, this way the await will wait for the whole array .
             await Promise.all(Object.keys(userItems).map(async (item) => {
                 const product = await getProductById(item);
@@ -32,8 +31,7 @@ export default function Cart() {
                 console.log(usersStarterTotal)
             }))
             console.log(usersStarterTotal)
-            await loadTotal();
-            
+            await loadTotal();    
         }
 
         const loadTotal = async () => {
@@ -51,7 +49,6 @@ export default function Cart() {
             //return <h1>{usersCart[item].quantity}</h1>
             return <CartCard key={item} productId={item} username={currentUserName} quantity={usersCart[item].quantity} addToTotal={addToTotal}
             rerenderFromDelete={rerenderFromDelete}></CartCard>
-
         })}
         </div>
         <div className="sticky rounded-lg top-4 h-full lg:w-1/5 shadow-2xl mr-8 ml-8 sm:text-sm ">
@@ -59,7 +56,6 @@ export default function Cart() {
             <button onClick={() => {
                     navigate("/checkout")
                 }
-
             } className="px-4 mb-8 py-2 mr-4 ml-4 transition ease-in duration-200 uppercase rounded-full 
             hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Proceed to checkout</button>
         </div>

@@ -15,7 +15,6 @@ export default function ProductDetails() {
         addUsersName()
         setProductDetails(location.state);
         console.log(productDetails)
-
     },[])
     
     return (
@@ -34,7 +33,6 @@ export default function ProductDetails() {
                 </div>
                 <div className="prod-info grid gap-10 flex flex-row items-center">
                     <div>
-                    
                     </div>
                     <div className="flex flex-col justify-between items-center text-gray-900">
                     
@@ -49,8 +47,6 @@ export default function ProductDetails() {
                 </div>
                 </div>
             </div>
-
-
     )
 
 }

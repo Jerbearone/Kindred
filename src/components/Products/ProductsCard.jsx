@@ -9,8 +9,8 @@ export default function ProductsCard({product, username}) {
     }
     
     return (
-        <div className="w-screen h-90vh flex justify-center items-center min-h-screen">
-            <div className="container max-w-sm w-full h-400 p-4 ">
+        <div className="h-90vh flex justify-start w-auto mb-4 mt-4">
+            <div className="flex items-center h-400 mr-4 ml-4 w-80 md:w-80 sm:w-60 xs:w-60">
                 <div className="card flex flex-col justify-center w-full p-20 bg-white rounded-lg shadow-2xl">
                 <div className="prod-title">
                     <p className="text-sm uppercase text-gray-900 font-bold truncate">{product.title}</p>
@@ -18,11 +18,11 @@ export default function ProductsCard({product, username}) {
                     {product.category}
                     </p>
                 </div>
-                <div className="prod-img">
+                <div className="prod-img w-full">
 
 
                     <img onClick={viewProductDetails} src={product.image}
-                        className="w-full h-60 object-contain object-center" />
+                        className="w-full h-60 object-contain object-center " />
                 </div>
                 <div className="prod-info grid gap-10">
                     <div>
