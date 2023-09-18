@@ -6,7 +6,6 @@ import { deleteCurrentUser, getCurrentUserName } from "../api/userLocalStorage";
 export default function MainNavbar({username, setUsername}) {
     const navigate = useNavigate();
     useEffect(()=>{
-
         const setupUsername = async() => {
             
             const data = await getCurrentUserName();
@@ -15,18 +14,14 @@ export default function MainNavbar({username, setUsername}) {
                 if (data!= null) {
                     console.log(`logged in user: ${data}`)
                     setUsername(data);
-
                 } else {
                     console.log(`No user: ${data}`)
                     setUsername("")
                 }
-                
             }
-            await setinitialUsersName();
-            
+            await setinitialUsersName();     
         }
-        setupUsername();
-        
+        setupUsername(); 
     },[])
 
     return (
@@ -48,8 +43,6 @@ export default function MainNavbar({username, setUsername}) {
                     <nav>
                     <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
                         <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Products</Link></li>
-                        
-                        
                     </ul>
                     
                     </nav>
