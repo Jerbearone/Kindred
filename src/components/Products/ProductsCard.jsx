@@ -19,14 +19,11 @@ export default function ProductsCard({product, username}) {
                     </p>
                 </div>
                 <div className="prod-img w-full">
-
-
                     <img onClick={viewProductDetails} src={product.image}
                         className="w-full h-60 object-contain object-center " />
                 </div>
                 <div className="prod-info grid gap-10">
                     <div>
-                    
                     </div>
                     <div className="flex flex-col md:flex-row justify-between items-center text-gray-900">
                     
@@ -39,12 +36,7 @@ export default function ProductsCard({product, username}) {
                         to cart</button>
                     </div>
                     <p className="font-bold text-xl">${product.price}</p>
-
-                    
                 </div>
-
-
-
                 </div>
             </div>
         </div>
