@@ -18,7 +18,7 @@ export default function ProductDetails() {
     },[])
     
     return (
-            <div className="container  w-full h-400 p-4 flex flex-col items-center">
+            <div className="w-full h-400 p-12 flex flex-col items-center">
                 <div className="card flex flex-col justify-center w-full p-20 bg-white rounded-lg shadow-2xl">
                 <div className="prod-title">
                     <p className="text-sm uppercase text-gray-900 font-bold mt-10 mb-10">{productDetails.title}</p>
