@@ -13,7 +13,6 @@ export default function Products({products, setProducts, searchedProducts}) {
             const response = await getAllProducts();
             console.log(response);
             setProducts(response);
-            
         }
         loadAllProducts();
 
@@ -33,12 +32,11 @@ export default function Products({products, setProducts, searchedProducts}) {
                     setProductCategories(getAllCategories);
                 }
                 setSearchResults();
-            }
-            
+            }     
         }
         loadAllProducts();
 
-    },[searchedProducts]);
+    },[searchedProducts, products]);
 
     //get username for adding to the users cart
     useEffect(()=> {
@@ -52,30 +50,15 @@ export default function Products({products, setProducts, searchedProducts}) {
 
     },[])
 
-    /*useEffect(() => {
-        if (searchedProducts) {
-            const setSearchResults = async () => {
-                const getAllCategories =  await categorySort(searchedProducts);
-                setProductCategories(getAllCategories);
-            }
-            setSearchResults();
-        }
-        
-
-    }, [searchedProducts])
-    */
-
-    
 
     return (
         <div className="h-full w-full items-center flex-row">
             {
                 //will map over all products to split by category
                 Object.keys(productCategories).map((category) => {
-                    
                     return (<>
-                    <h2 className="text-2xl uppercase text-gray-900 font-bold mt-10 mb-10" >{category}</h2>
-                    <CategoriesContainer className="w-full h-full" key={category.category} username={username} products={productCategories[category]}></CategoriesContainer>
+                    {productCategories[category].length != 0 && <h2 className="text-2xl uppercase text-gray-900 font-bold mt-10 mb-10" >{category}</h2>}
+                    <CategoriesContainer className="w-full h-full" key={productCategories[category]} username={username} products={productCategories[category]}></CategoriesContainer>
                     </>
                 )
                 })
