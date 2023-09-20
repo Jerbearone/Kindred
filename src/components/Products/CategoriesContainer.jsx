@@ -7,8 +7,5 @@ export default function CategoriesContainer({products, username}) {
             console.log("PRODUCT: " + product)
             return <ProductsCard key={product.id} product={product} username={username}></ProductsCard>
         })}
-
-
-
     </div>)
 }
