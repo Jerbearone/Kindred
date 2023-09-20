@@ -12,14 +12,17 @@ import Footer from './components/Footer/Footer'
 
 function App() {
   const [username, setUsername] = useState("");
+  const [products, setProducts] = useState([]);
+  const [searchedProducts, setSearchedProducts] = useState(null);
 
 
   return (
     <>
     <h1 className="w-full text-4xl text-blue-600 bg-white mt-5 ">Kindred</h1>
-    <MainNavbar username={username} setUsername={setUsername}></MainNavbar>
+    <MainNavbar username={username} setUsername={setUsername} products={products} setSearchedProducts={setSearchedProducts}></MainNavbar>
       <Routes>
-        <Route path='/' element={<Products></Products>}></Route>
+        <Route path='/' element={<Products products={products} setProducts={setProducts} searchedProducts={searchedProducts}>
+        </Products>}></Route>
         <Route path='/cart' element={<Cart></Cart>}></Route>
         <Route path='/checkout' element={<Checkout></Checkout>}></Route>
         <Route path='/login' element={<Login username={username} setUsername={setUsername}></Login>}></Route>

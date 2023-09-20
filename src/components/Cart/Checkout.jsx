@@ -63,7 +63,6 @@ export default function Checkout() {
                                                 //return <h1>{usersCart[item].quantity}</h1>
                                                 return <CheckoutCard key={item} productId={item} addToTotal={addToTotal} quantity={usersCart[item].quantity} 
                                                 ></CheckoutCard>
-                                    
                                             })
                                         }
                                     </div>

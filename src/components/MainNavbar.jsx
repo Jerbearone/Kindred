@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import { useEffect } from "react";
 import { deleteCurrentUser, getCurrentUserName } from "../api/userLocalStorage";
 
-export default function MainNavbar({username, setUsername}) {
+export default function MainNavbar({username, setUsername, products, setSearchedProducts}) {
     const navigate = useNavigate();
     useEffect(()=>{
         const setupUsername = async() => {
@@ -46,7 +46,7 @@ export default function MainNavbar({username, setUsername}) {
                     </ul>
                     
                     </nav>
-                    <SearchBar></SearchBar>
+                    <SearchBar products={products} setSearchedProducts={setSearchedProducts}></SearchBar>
                 </div>
                 
                 <div className="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
