@@ -20,8 +20,6 @@ export default function SearchBar({products, setSearchedProducts}) {
           })
           setFilteredProducts(tempFilteredArray);
           setSearchedProducts(tempFilteredArray);
-
-
     }
 
   }, [products])
@@ -35,8 +33,6 @@ export default function SearchBar({products, setSearchedProducts}) {
       <spa>
         <svg onClick={()=> {
           navigate("/")
-          
-          
           const tempFilteredArray = [];
           products.map((product) => {
             console.log(product.title);
