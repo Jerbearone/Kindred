@@ -43,11 +43,7 @@ export default function Checkout() {
         loadUsersItems()
     },[])
 
-
     const addToTotal =(amount) => {setTotalPrice(totalPrice+amount)}
-
-
-
     return (
         <div className="min-w-screen min-h-screen  py-5 ml-10 mr-10">
             <div className="w-full bg-white border-t border-b border-gray-200 px-5 py-10 text-gray-800">

@@ -3,6 +3,7 @@ import { getAllProducts } from "../../api/api";
 import categorySort from "../../utils/categorySort";
 import CategoriesContainer from "./CategoriesContainer";
 import { getCurrentUserName } from "../../api/userLocalStorage";
+import FilterView from "./FilterView";
 //main container for viewing all products (home)
 export default function Products({products, setProducts, searchedProducts}) {
     console.log("Searched Products: " + searchedProducts)
@@ -53,6 +54,8 @@ export default function Products({products, setProducts, searchedProducts}) {
 
     return (
         <div className="h-full w-full items-center flex-row">
+            <FilterView></FilterView>
+
             {
                 //will map over all products to split by category
                 Object.keys(productCategories).map((category) => {
