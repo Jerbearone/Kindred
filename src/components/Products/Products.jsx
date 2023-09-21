@@ -54,7 +54,7 @@ export default function Products({products, setProducts, searchedProducts}) {
 
     return (
         <div className="h-full w-full items-center flex-row">
-            <FilterView></FilterView>
+            <FilterView products={products} setProductCategories={setProductCategories}></FilterView>
 
             {
                 //will map over all products to split by category
