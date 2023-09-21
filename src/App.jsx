@@ -8,6 +8,7 @@ import Cart from './components/Cart/Cart'
 import Checkout from './components/Cart/Checkout'
 import { useState } from 'react'
 import Footer from './components/Footer/Footer'
+import Register from './components/Auth/Register'
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Route path='/cart' element={<Cart></Cart>}></Route>
         <Route path='/checkout' element={<Checkout></Checkout>}></Route>
         <Route path='/login' element={<Login username={username} setUsername={setUsername}></Login>}></Route>
-        <Route path='/register'></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
         <Route path='history'></Route>
         <Route path='/productinfo' element={<ProductDetails></ProductDetails>}></Route>
       </Routes>

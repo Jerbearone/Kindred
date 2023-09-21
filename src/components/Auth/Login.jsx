@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { loginUser } from "../../api/api";
 import { useNavigate } from "react-router-dom";
-import { addCurrentUser } from "../../api/userLocalStorage";
+import { addCurrentUser, loginThroughLocalStorage } from "../../api/userLocalStorage";
 
 
 export default function Login({username, setUsername}){
@@ -22,12 +22,30 @@ export default function Login({username, setUsername}){
           
                 const loggedInUser = await loginUser(userNameInput, password);
                 console.log(loggedInUser);
-                if (loggedInUser.token) {
-                    await addCurrentUser(userNameInput);
-                    setUsername(userNameInput);
-                    navigate("/")
-                }
+                try {
+                    if (loggedInUser.token) {
+                        await addCurrentUser(userNameInput);
+                        setUsername(userNameInput);
+                        navigate("/")
+                    }
+                    
+                    } catch (error) {
+                    console.log(error);
+                    try {
+                        const isUser = await loginThroughLocalStorage(userNameInput, password);
+                        if (isUser) {
+                            await addCurrentUser(userNameInput);
+                            setUsername(userNameInput)
+                            navigate("/")
+                        }
+                        
+                    } catch (error) {
+                        //make user register
+                        
+                    }
 
+                    }
+                
             }
     }
 
