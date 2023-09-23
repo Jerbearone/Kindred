@@ -23,6 +23,7 @@ export default function FilterView({products, setProductCategories}) {
                 <button onClick={async() => {
                     const filteredProducts = await sortPriceLowToHigh(products);
                     setProductCategories(filteredProducts);
+                    setDropDownToggle(!dropDownToggle);
                 }} className="mb-2 w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-500 transition duration-300 text-white rounded-lg 
                 px-3 py-1 font-semibold"><i className="mdi mdi-lock-outline mr-1"></i>Low to high</button>
                 </span>
@@ -32,7 +33,7 @@ export default function FilterView({products, setProductCategories}) {
                 <button onClick={async()=> {
                     const filteredProducts = await sortPriceHighToLow(products);
                     setProductCategories(filteredProducts);
-
+                    setDropDownToggle(!dropDownToggle)
                 }} className="mb-2 w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-500 transition duration-300 text-white rounded-lg px-3 py-1 font-semibold"><i className="mdi mdi-lock-outline mr-1"></i>High to low</button>
                 </span>
             </a>
@@ -41,12 +42,12 @@ export default function FilterView({products, setProductCategories}) {
                 <button onClick={async() => {
                     const filteredProducts = await sortPriceLessThan100(products);
                     setProductCategories(filteredProducts);
+                    setDropDownToggle(!dropDownToggle);
                 }} className="block w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-500 transition duration-300 text-white rounded-lg px-3  font-semibold"><i className="mdi mdi-lock-outline mr-1"></i>Less than $100</button>
                 </span>
             </a>
         </div>
     </div>}
 </div>
-
     )
 }
