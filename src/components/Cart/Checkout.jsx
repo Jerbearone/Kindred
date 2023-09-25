@@ -4,12 +4,14 @@ import { getCurrentUserName } from "../../api/userLocalStorage";
 import { getItemsFromCart } from "../../api/cartLocalStorage";
 import { getProductById } from "../../api/api";
 import CheckoutCard from "./CheckoutCard";
+import SuccessfulPurchaseMessage from "../Messages/SuccessfulPurchaseMessage";
 
 export default function Checkout() {
 
     const [usersCart, setUsersCart] = useState({})
     const [totalPrice, setTotalPrice] = useState(0);
     const [currentUserName, setCurrentUsername] = useState("")
+    const [showConfirmation, setShowConfirmation] = useState(false);
     const navigate = useNavigate();
     useEffect(()=>{
         let usersStarterTotal = 0;
@@ -32,11 +34,8 @@ export default function Checkout() {
                 console.log(usersStarterTotal)
             }))
             console.log(usersStarterTotal)
-            await loadTotal();
-            
+            await loadTotal();       
         }
-        
-
         const loadTotal = async () => {
             setTotalPrice(usersStarterTotal);
         }
@@ -46,13 +45,13 @@ export default function Checkout() {
     const addToTotal =(amount) => {setTotalPrice(totalPrice+amount)}
     return (
         <div className="min-w-screen min-h-screen  py-5 ml-10 mr-10">
+            <SuccessfulPurchaseMessage showConfirmation={showConfirmation}></SuccessfulPurchaseMessage>
             <div className="w-full bg-white border-t border-b border-gray-200 px-5 py-10 text-gray-800">
                 <div className="w-full">
                     <div className="-mx-3 md:flex items-start">
                         <div className="px-3 md:w-7/12 lg:pr-10">
                             <div className="w-full mx-auto text-gray-800 font-light mb-6 border-b border-gray-200 pb-6">
-                                <div className="w-full flex items-center">
-                                    
+                                <div className="w-full flex items-center"> 
                                     <div className="flex-grow pl-3">
                                         {
                                             Object.keys(usersCart).map((item)=> {
@@ -189,10 +188,11 @@ export default function Checkout() {
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
                             <div>
-                                <button className="block w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-500 transition duration-300 text-white rounded-lg px-3 py-2 font-semibold"><i className="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
+                                <button onClick={()=> {
+                                    setShowConfirmation(true);
+                                }} className="block w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-500 transition duration-300 text-white rounded-lg px-3 py-2 font-semibold"><i className="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
                             </div>
                         </div>
                     </div>

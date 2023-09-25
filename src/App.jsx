@@ -9,18 +9,21 @@ import Checkout from './components/Cart/Checkout'
 import { useState } from 'react'
 import Footer from './components/Footer/Footer'
 import Register from './components/Auth/Register'
+import ResponsiveSidebar from './components/ResponsiveSidebar'
 
 
 function App() {
   const [username, setUsername] = useState("");
   const [products, setProducts] = useState([]);
   const [searchedProducts, setSearchedProducts] = useState(null);
+  const [showSideNav, setShowSideNav] = useState(false);
 
 
   return (
     <>
     <h1 className="w-full text-4xl text-blue-600 bg-white mt-5 ">Kindred</h1>
-    <MainNavbar username={username} setUsername={setUsername} products={products} setSearchedProducts={setSearchedProducts}></MainNavbar>
+    <MainNavbar username={username} setUsername={setUsername} products={products} setSearchedProducts={setSearchedProducts} setShowSideNav={setShowSideNav}></MainNavbar>
+    <ResponsiveSidebar username={username} setUsername={setUsername} products={products} setSearchedProducts={setSearchedProducts} showSideNav={showSideNav} setShowSideNav={setShowSideNav}></ResponsiveSidebar>
       <Routes>
         <Route path='/' element={<Products products={products} setProducts={setProducts} searchedProducts={searchedProducts}>
         </Products>}></Route>

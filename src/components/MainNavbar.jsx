@@ -3,11 +3,10 @@ import SearchBar from "./SearchBar";
 import { useEffect } from "react";
 import { deleteCurrentUser, getCurrentUserName } from "../api/userLocalStorage";
 
-export default function MainNavbar({username, setUsername, products, setSearchedProducts}) {
+export default function MainNavbar({username, setUsername, products, setSearchedProducts, setShowSideNav}) {
     const navigate = useNavigate();
     useEffect(()=>{
         const setupUsername = async() => {
-            
             const data = await getCurrentUserName();
             const setinitialUsersName = async() => {
                 console.log(`username: ${data}`);
@@ -31,14 +30,18 @@ export default function MainNavbar({username, setUsername, products, setSearched
                 {//implement toggle option here
                 }
                 <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
-                    <svg className="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <svg onClick={()=> {
+                        setShowSideNav(true);
+                    }} className="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
                 </label>
-                <input className="hidden" type="checkbox" id="menu-toggle"/>
                 
-                <div className="hidden md:flex md:items-center w-3/5 order-3 md:order-1" id="menu">
+                <input className="hidden" type="checkbox" id="menu-toggle"/>
+                <div className=" hidden md:flex md:items-center w-3/5 order-3 md:order-1" id="menu">
+                    <div>
+                </div>
 
                     <nav>
                     <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
