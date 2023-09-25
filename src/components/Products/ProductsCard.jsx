@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { addItemToCart } from "../../api/cartLocalStorage";
 
-export default function ProductsCard({product, username}) {
+export default function ProductsCard({product, username, setAddedToCartClicked}) {
   
     const navigator = useNavigate();
     const viewProductDetails = () => {
@@ -28,8 +28,13 @@ export default function ProductsCard({product, username}) {
                     <div className="flex flex-col md:flex-row justify-between items-center text-gray-900">
                     
                     {username && <button onClick={() => {
-                        addItemToCart(username,product.id, 1)
-                        console.log(username)
+                        addItemToCart(username,product.id, 1);
+                        //console.log(username);
+                        setAddedToCartClicked(true);
+                        setTimeout(() => {
+
+                            setAddedToCartClicked(false);
+                        }, 2000)
                         
                     }}
                             className="px-12 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add

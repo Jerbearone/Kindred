@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"
 import { addItemToCart } from "../../api/cartLocalStorage";
 import { getCurrentUserName } from "../../api/userLocalStorage";
+import AddedToCartButton from "../Messages/AddedToCartButton";
 
 export default function ProductDetails() {
     const [productDetails, setProductDetails] = useState({})
     const [userName, setUsername] = useState("")
+    const [addedToCartClicked, setAddedToCartClicked] = useState(false);
     const location = useLocation()
     useEffect(()=>{
         const addUsersName = async() => {
@@ -39,6 +41,10 @@ export default function ProductDetails() {
                     <button
                         onClick={()=> {
                             addItemToCart(userName,productDetails.id, 1)
+                            setAddedToCartClicked(true);
+                            setTimeout(() => {
+                            setAddedToCartClicked(false);
+                        }, 2000)
                         }}
                             className="px-12 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add
                         to cart</button>
@@ -46,7 +52,10 @@ export default function ProductDetails() {
                     <p className="font-bold text-xl">${productDetails.price}</p>
                 </div>
                 </div>
+                <div className=" flex sticky absolute bottom-0 justify-center">
+                {addedToCartClicked && <AddedToCartButton></AddedToCartButton>}
             </div>
-    )
+            </div>
+            )
 
 }

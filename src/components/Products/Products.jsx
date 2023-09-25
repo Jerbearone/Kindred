@@ -4,11 +4,13 @@ import categorySort from "../../utils/categorySort";
 import CategoriesContainer from "./CategoriesContainer";
 import { getCurrentUserName } from "../../api/userLocalStorage";
 import FilterView from "./FilterView";
+import AddedToCartButton from "../Messages/AddedToCartButton";
 //main container for viewing all products (home)
 export default function Products({products, setProducts, searchedProducts}) {
     console.log("Searched Products: " + searchedProducts)
     const [username, setUsername] = useState("");
     const [productCategories, setProductCategories] = useState([])
+    const [addedToCartClicked, setAddedToCartClicked] = useState(false);
     useEffect(() => {
         const loadAllProducts = async() => {
             const response = await getAllProducts();
@@ -51,7 +53,6 @@ export default function Products({products, setProducts, searchedProducts}) {
 
     },[])
 
-
     return (
         <div className="h-full w-full items-center flex-row">
             <FilterView products={products} setProductCategories={setProductCategories}></FilterView>
@@ -61,11 +62,16 @@ export default function Products({products, setProducts, searchedProducts}) {
                 Object.keys(productCategories).map((category) => {
                     return (<>
                     {productCategories[category].length != 0 && <h2 className="text-2xl uppercase text-gray-900 font-bold mt-10 mb-10" >{category}</h2>}
-                    <CategoriesContainer className="w-full h-full" key={productCategories[category]} username={username} products={productCategories[category]}></CategoriesContainer>
+                    <CategoriesContainer className="w-full h-full" key={productCategories[category]} username={username} products={productCategories[category]}
+                    setAddedToCartClicked={setAddedToCartClicked}></CategoriesContainer>
                     </>
                 )
                 })
-            } 
+            }
+            <div className=" flex sticky absolute bottom-0 justify-center">
+                {addedToCartClicked && <AddedToCartButton></AddedToCartButton>}
+            </div>
+            
         </div>
     )
 }
