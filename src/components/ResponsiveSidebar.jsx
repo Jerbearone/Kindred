@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function ResponsiveSidebar({username, setUsername, products, setSearchedProducts,showSideNav, setShowSideNav}){
     return (
-        <div className={`fixed top-0 transition-all duration-1000 h-screen mt-5 fixed z-10 ${showSideNav ? "-left-0 w-64" : "-left-64 w-64"}`}>
-            <aside className="flex flex-col w-64 h-screen px-2 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+        <div className={`fixed top-0 transition-all duration-1000 h-screen mt-5 fixed z-10 ${showSideNav ? "-left-0 w-80" : "-left-80 w-80"}`}>
+            <aside className="flex flex-col w-80 h-screen px-2 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
                 <div className="flex w-full justify-center mt-10 ">
                     <svg onClick={()=> {
                         setShowSideNav(false);
