@@ -43,9 +43,7 @@ export default function Login({username, setUsername}){
                         
                     } catch (error) {
                         //make user register
-                        setInputFailed(true);
-                        
-                        
+                        setInputFailed(true);     
                     }
                 }    
             } else {
