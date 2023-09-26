@@ -8,6 +8,7 @@ export default function Login({username, setUsername}){
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [userNameInput, setUserNameInput] = useState("");
+    const [inputFailed, setInputFailed] = useState(false);
 
     const changeUserName = (e) => {
         setUserNameInput(e.target.value);
@@ -31,6 +32,7 @@ export default function Login({username, setUsername}){
                     
                     } catch (error) {
                     console.log(error);
+                    setInputFailed(true)
                     try {
                         const isUser = await loginThroughLocalStorage(userNameInput, password);
                         if (isUser) {
@@ -41,9 +43,13 @@ export default function Login({username, setUsername}){
                         
                     } catch (error) {
                         //make user register
+                        setInputFailed(true);
+                        
                         
                     }
                 }    
+            } else {
+                setInputFailed(true);
             }
     }
 
@@ -62,6 +68,9 @@ export default function Login({username, setUsername}){
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">Password</label>
             <input onChange={changeUserPassword} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
             type="password" id="password" name="password" placeholder="********"></input>
+        </div>
+        <div>
+            {inputFailed && <p className="block text-red-700 text-sm font-bold mb-2">Username or password incorrect</p>}
         </div>
 
         <button onClick={(e) => {e.preventDefault();attemptUserLogin()}}
