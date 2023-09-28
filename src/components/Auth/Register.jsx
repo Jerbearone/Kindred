@@ -51,14 +51,12 @@ export default function Register(){
             }} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
             type="password" id="confirm-password" name="confirm-password" placeholder="********"></input>
         </div>
-       
         <div>
             {inputFailed && <p className="block text-red-700 text-sm font-bold mb-2">Username, password, and email must have a min length of 7 characters</p>}
         </div>
         <button
         onClick={(e)=> {
             submitForm(e);
-
         }}
             className="w-full bg-blue-600 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-500 transition duration-300"
             type="submit">Register</button>

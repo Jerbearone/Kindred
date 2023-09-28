@@ -70,8 +70,7 @@ export default function Products({products, setProducts, searchedProducts}) {
             }
             <div className=" flex sticky absolute bottom-0 justify-center">
                 {addedToCartClicked && <AddedToCartButton></AddedToCartButton>}
-            </div>
-            
+            </div> 
         </div>
     )
 }

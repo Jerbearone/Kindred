@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 
@@ -14,21 +13,19 @@ export default function ResponsiveSidebar({username, setUsername, products, setS
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
                 </div>
-    <div className="flex flex-col justify-between flex-1 mt-6">
-        <nav className="-mx-3 space-y-6 ">
-            <div className="w-full">
-            <nav>
-                <SearchBar products={products} setSearchedProducts={setSearchedProducts}></SearchBar>
-                    <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
-                        <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Products</Link></li>
-                    </ul> 
+                <div className="flex flex-col justify-between flex-1 mt-6">
+                    <nav className="-mx-3 space-y-6 ">
+                        <div className="w-full">
+                        <nav>
+                            <SearchBar products={products} setSearchedProducts={setSearchedProducts}></SearchBar>
+                                <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+                                    <li><Link className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2" to="/">Products</Link></li>
+                                </ul> 
+                                </nav>
+                        </div>
                     </nav>
-            </div>
-        </nav>
-    </div>
-</aside>
-            
-
+                </div>
+            </aside>
         </div>
     )
 }

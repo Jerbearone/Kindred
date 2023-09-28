@@ -24,7 +24,7 @@ export default function CartCard({productId, quantity, username, addToTotal, rer
     }
     return (
             <div className="w-9/10 h-200 ml-8 mr-8 mb-4">
-                <div className="card flex flex-col justify-center w-full p-10 bg-white rounded-lg shadow-2xl">
+                {product && <div className="card flex flex-col justify-center w-full p-10 bg-white rounded-lg shadow-2xl">
                 <div className="prod-title">
                     <p className="text-sm uppercase text-gray-900 font-bold truncate mb-10">{product.title}</p>
                   
@@ -62,7 +62,7 @@ export default function CartCard({productId, quantity, username, addToTotal, rer
 
                     }} className="hover:text-blue-600">remove from cart</button>
                 </div>
-                </div>
+                </div>}
             </div>
     )
 }
