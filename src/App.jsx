@@ -11,13 +11,11 @@ import Footer from './components/Footer/Footer'
 import Register from './components/Auth/Register'
 import ResponsiveSidebar from './components/ResponsiveSidebar'
 
-
 function App() {
   const [username, setUsername] = useState("");
   const [products, setProducts] = useState([]);
   const [searchedProducts, setSearchedProducts] = useState(null);
   const [showSideNav, setShowSideNav] = useState(false);
-
 
   return (
     <>
@@ -35,7 +33,6 @@ function App() {
         <Route path='/productinfo' element={<ProductDetails></ProductDetails>}></Route>
       </Routes>
       <Footer></Footer>
-
     </>
   )
 }

@@ -50,10 +50,7 @@ export default function Login({username, setUsername}){
                 setInputFailed(true);
             }
     }
-
-   
     return (
-
         <div className="container mx-auto py-8">
         <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
         <form className="w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md">
